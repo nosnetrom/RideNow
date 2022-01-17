@@ -1,0 +1,45 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="RideNow.Admin" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>RideNow | Admin Module</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="~/Content/site.css" type="text/css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <nav class="teal">
+                <div class="nav-wrapper container">
+                    <a href="/" class="brand-logo">RideNow</a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li>
+                        <a href="#">
+                            <i class="material-icons left">logout</i>Logout
+                        </a>
+                    </li>
+                    </ul>
+                </div>
+            </nav>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            <footer class="right-align container">
+                FullName: <%=Session["FullName"] %> | userName: <%=Session["userName"] %> | Role: <%=Session["type"] %>
+            </footer>
+        </div>
+    </form>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('select');
+            var options = {};
+            var instances = M.FormSelect.init(elems, options);
+        });
+    </script>
+ </body>
+</html>
