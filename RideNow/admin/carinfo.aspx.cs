@@ -39,7 +39,7 @@ namespace RideNow.admin
             else
             {
                  // Instructor's code retrieves the top 1 car (order by Descr)
-                lblError.Text = "Please return to the previous page and pick a specific car.";
+                lblError.Text = "Please return to the <a href='index.aspx'>gallery</a> and pick a specific car.";
                 
             }
         }

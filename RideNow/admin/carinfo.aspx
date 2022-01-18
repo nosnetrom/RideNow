@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="carinfo.aspx.cs" Inherits="RideNow.admin.carinfo" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
-        <asp:Label ID="lblError" runat="server" CssClass="red-text"></asp:Label>
+        <p><asp:Label ID="lblError" runat="server" CssClass="red-text"></asp:Label></p>
         <asp:Repeater ID="rpt1" runat="server">
             <HeaderTemplate>
                 <div class="unselectable row">

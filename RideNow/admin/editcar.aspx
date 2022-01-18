@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
         <section class="section">
-            <asp:Label ID="lblError" runat="server"></asp:Label>
+            <p><asp:Label ID="lblError" runat="server"></asp:Label></p>
             <div class="row">
                 <div class="col s5">
                     <asp:Repeater ID="rpt1" runat="server">
@@ -39,6 +39,7 @@
                                         </dl>
                                     </div>
                                     <div class="card-action center">
+                                        <span class="chip orange-text" runat="server" visible='<%#Eval("Amt").ToString()=="0" %>'>UNAVAILABLE</span>
                                         <asp:LinkButton runat="server" ID="Delete" CssClass="btn orange center" OnClick="Delete_Click">Delete Car</asp:LinkButton>
                                     </div>
                                 </div>
@@ -99,7 +100,6 @@
                             
                         </div>
                         <div class="card-action center">
-                            <span class="chip" runat="server" visible="false">Unavailable</span>
                             <asp:LinkButton runat="server" ID="UpdateCar" OnClick="UpdateCar_Click">Update Car</asp:LinkButton>
                             <a href="addcar.aspx">Add New Car</a>
                         </div>

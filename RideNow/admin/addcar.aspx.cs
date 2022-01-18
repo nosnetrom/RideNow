@@ -45,7 +45,7 @@ namespace RideNow.admin
                     cmd.Parameters.AddWithValue("@photopath", photopath);
                     cmd.ExecuteNonQuery();
                     conn.Close();
-                    Response.Redirect("carinfo.aspx");
+                    Response.Redirect("index.aspx");
                 }
                 else
                 {
