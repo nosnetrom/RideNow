@@ -1,5 +1,21 @@
-﻿.card-auto .card-title {
+﻿body > form {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+
+.card-auto .card-title,
+.slider h3,
+.slider h5{
     text-shadow: 1px 1px 4px rgba(0,0,0,0.75), 1px 1px 1px rgb(0,0,0);
+}
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
+    margin: 0 12px !important;
 }
 dl {
     margin: .25em 0 0 0;
@@ -8,12 +24,8 @@ dl:last-child {
     margin-bottom: .25em;
 }
 dt {
-    display: inline-block;
-    clear: left;
     font-weight: 600;
 }
 dd {
-    display: inline-block;
-    clear: right;
-    margin-left: 4px;
+    margin-left: 1rem;
 }

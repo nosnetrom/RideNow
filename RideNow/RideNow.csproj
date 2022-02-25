@@ -106,9 +106,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="admin\addcar.aspx" />
+    <Content Include="admin\addshowcase.aspx" />
+    <Content Include="admin\brandcars.aspx" />
     <Content Include="admin\carinfo.aspx" />
+    <Content Include="admin\dashboard.aspx" />
     <Content Include="admin\editcar.aspx" />
+    <Content Include="admin\editshowcase.aspx" />
     <Content Include="admin\index.aspx" />
+    <Content Include="admin\myrent.aspx" />
+    <Content Include="admin\showcase.aspx" />
+    <Content Include="admin\showinfo.aspx" />
+    <Content Include="admin\users.aspx" />
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -119,6 +127,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Home.Master" />
     <Content Include="Admin.Master" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="index.aspx" />
     <Content Include="login.aspx" />
@@ -170,12 +182,33 @@
     <Compile Include="admin\addcar.aspx.designer.cs">
       <DependentUpon>addcar.aspx</DependentUpon>
     </Compile>
+    <Compile Include="admin\addshowcase.aspx.cs">
+      <DependentUpon>addshowcase.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\addshowcase.aspx.designer.cs">
+      <DependentUpon>addshowcase.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\brandcars.aspx.cs">
+      <DependentUpon>brandcars.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\brandcars.aspx.designer.cs">
+      <DependentUpon>brandcars.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin\carinfo.aspx.cs">
       <DependentUpon>carinfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="admin\carinfo.aspx.designer.cs">
       <DependentUpon>carinfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\dashboard.aspx.cs">
+      <DependentUpon>dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\dashboard.aspx.designer.cs">
+      <DependentUpon>dashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\editcar.aspx.cs">
       <DependentUpon>editcar.aspx</DependentUpon>
@@ -184,12 +217,47 @@
     <Compile Include="admin\editcar.aspx.designer.cs">
       <DependentUpon>editcar.aspx</DependentUpon>
     </Compile>
+    <Compile Include="admin\editshowcase.aspx.cs">
+      <DependentUpon>editshowcase.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\editshowcase.aspx.designer.cs">
+      <DependentUpon>editshowcase.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="admin\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\myrent.aspx.cs">
+      <DependentUpon>myrent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\myrent.aspx.designer.cs">
+      <DependentUpon>myrent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\showcase.aspx.cs">
+      <DependentUpon>showcase.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\showcase.aspx.designer.cs">
+      <DependentUpon>showcase.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\showinfo.aspx.cs">
+      <DependentUpon>showinfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\showinfo.aspx.designer.cs">
+      <DependentUpon>showinfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\users.aspx.cs">
+      <DependentUpon>users.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\users.aspx.designer.cs">
+      <DependentUpon>users.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -218,6 +286,11 @@
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="register.aspx.cs">
       <DependentUpon>register.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -272,6 +345,8 @@
           <DevelopmentServerPort>51326</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>https://localhost:44367/</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>https://localhost:44367/</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

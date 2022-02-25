@@ -12,10 +12,17 @@ namespace RideNow
         protected void Page_Load(object sender, EventArgs e)
         {
             string r = Convert.ToString(Session["type"]);
-            if (r != "Admin" || String.IsNullOrEmpty(r))
+            if (r != "Admin" || String.IsNullOrEmpty(r) || Session["userName"] == null) // 
             {
-                Response.Redirect("/index.aspx");
+                Response.Redirect("/login.aspx");
             }
+        }
+
+        protected void lnkbtnLogout_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Session.Abandon();
+            Response.Redirect("/index.aspx");
         }
     }
 }

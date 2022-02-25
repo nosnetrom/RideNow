@@ -48,6 +48,7 @@ namespace RideNow
             int numRows = Convert.ToInt32(dt.Rows.Count.ToString());
             if (numRows == 1)
             {
+                string strRedirect;
                 SqlDataReader rdr;
                 SqlConnection connSession = new SqlConnection(connStr);
                 connSession.Open();
@@ -63,26 +64,22 @@ namespace RideNow
                 {
                     Session["userName"] = email.Value;
                     Session["type"] = "Admin";
-                    connSession.Close();
-                    conn.Close();
-                    Response.Redirect("~/admin/");
+                    strRedirect = "/admin/index.aspx";
                 }
                 else if (role == "User")
                 {
                     Session["userName"] = email.Value;
                     Session["type"] = "User";
-                    connSession.Close();
-                    conn.Close();
-                    Response.Redirect("~/user/index.aspx");
+                    strRedirect = "/user/index.aspx";
                 }
                 else
                 {
                     // other user types to be handled in the future
-                    connSession.Close();
-                    conn.Close();
-                    Response.Redirect("~/index.aspx");
+                    strRedirect = "/index.aspx";
                 }
-
+                connSession.Close();
+                conn.Close();
+                Response.Redirect(strRedirect);
             }
             else
             {
