@@ -117,6 +117,8 @@
     <Content Include="admin\showcase.aspx" />
     <Content Include="admin\showinfo.aspx" />
     <Content Include="admin\users.aspx" />
+    <Content Include="brandcars.aspx" />
+    <Content Include="carinfo.aspx" />
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -163,7 +165,10 @@
     <Content Include="Scripts\WebForms\WebForms.js" />
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="user\brandcars.aspx" />
+    <Content Include="user\carinfo.aspx" />
     <Content Include="user\index.aspx" />
+    <Content Include="user\myrent.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
   </ItemGroup>
@@ -261,6 +266,27 @@
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="brandcars.aspx.cs">
+      <DependentUpon>brandcars.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="brandcars.aspx.designer.cs">
+      <DependentUpon>brandcars.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="carinfo.aspx.cs">
+      <DependentUpon>carinfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="carinfo.aspx.designer.cs">
+      <DependentUpon>carinfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="customer\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="customer\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -305,12 +331,33 @@
     <Compile Include="User.Master.designer.cs">
       <DependentUpon>User.Master</DependentUpon>
     </Compile>
+    <Compile Include="user\brandcars.aspx.cs">
+      <DependentUpon>brandcars.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\brandcars.aspx.designer.cs">
+      <DependentUpon>brandcars.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\carinfo.aspx.cs">
+      <DependentUpon>carinfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\carinfo.aspx.designer.cs">
+      <DependentUpon>carinfo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="user\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="user\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\myrent.aspx.cs">
+      <DependentUpon>myrent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\myrent.aspx.designer.cs">
+      <DependentUpon>myrent.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

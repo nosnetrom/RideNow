@@ -12,15 +12,50 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
+        <header class="navbar-fixed">
+            <nav class="teal">
+                <div class="nav-wrapper container">
+                    <a href="index.aspx" class="brand-logo">RideNow</a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li>
+                            <a href="/user/myrent.aspx"><i class="material-icons left">directions_car</i>My Rentals</a>
+                        </li>
+                        <li>
+                            <asp:LinkButton ID="lnkbtnLogout" runat="server" OnClick="lnkbtnLogout_Click">
+                                <i class="material-icons left">logout</i>Logout
+                            </asp:LinkButton>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <main>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
-            <footer class="right container">
-                FullName: <%=Session["FullName"] %> | userName: <%=Session["userName"] %> | Role: <%=Session["type"] %>
-            </footer>
-        </div>
+        </main>
+        <footer class="teal page-footer">
+            <div class="container right-align">
+                Copyright &copy; 2022 Udemy.com
+            </div>
+        </footer>
+
     </form>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize <select> elements in Materialize
+            var selects = document.querySelectorAll('select');
+            var selectOptions = {};
+            var selectInstances = M.FormSelect.init(selects, selectOptions);
+            // Initialize Materialize slider
+            var sliders = document.querySelectorAll('.slider');
+            var sliderOptions = {'duration': 1000, 'indicators': false}
+            var sliderInsances = M.Slider.init(sliders, sliderOptions);
+        });
+        function goBack() {
+            window.history.back();
+        }
+    </script>
 </body>
 </html>

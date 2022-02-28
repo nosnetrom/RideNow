@@ -8,79 +8,47 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace RideNow
+namespace RideNow.user
 {
-    public partial class homepage : System.Web.UI.Page
+    public partial class carinfo : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             lblError.Text = "";
-            Show_Slider();
-            OurBrands();
-            ShowCar_Advertised();
+            Show_CarInfo();
         }
 
-        private void OurBrands()
+        private void Show_CarInfo()
         {
-            string connStr = ConfigurationManager.ConnectionStrings["RideNowConnStr"].ConnectionString;
-            SqlConnection conn = new SqlConnection(connStr);
-            conn.Open();
-            SqlCommand cmd = new SqlCommand("SELECT DISTINCT BrandName FROM Cars ORDER BY BrandName", conn);
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
-            rptBrands.DataSource = dt;
-            rptBrands.DataBind();
-            conn.Close();
-
-        }
-
-        private void Show_Slider()
-        {
-            string connStr = ConfigurationManager.ConnectionStrings["RideNowConnStr"].ConnectionString;
-            SqlConnection conn = new SqlConnection(connStr);
-            conn.Open();
-            SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandType = System.Data.CommandType.Text;
-            cmd.CommandText = "SELECT * FROM ShowCases WHERE ShowType=@type";
-            cmd.Parameters.AddWithValue("@type", "1");
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
-            if (dt.Rows.Count > 0)
+            if (!string.IsNullOrWhiteSpace(Request.QueryString["id"]))
             {
-                rpt.DataSource = dt;
-                rpt.DataBind();
+                string connStr = ConfigurationManager.ConnectionStrings["RideNowConnStr"].ConnectionString;
+                SqlConnection conn = new SqlConnection(connStr);
+                conn.Open();
+                SqlCommand cmd = conn.CreateCommand();
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.CommandText = "SELECT * FROM Cars WHERE CarID=@cid";
+                cmd.Parameters.AddWithValue("@cid", Request.QueryString["id"].ToString());
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    rpt1.DataSource = dt;
+                    rpt1.DataBind();
+                }
+                else
+                {
+                    lblError.Text = "That car cannot be found in inventory. Please try again, or contact a system administrator.";
+                }
+                conn.Close();
             }
             else
             {
-                lblError.Text = " Please contact a system administrator to select a showcase to become active. ";
-            }
-            conn.Close();
-        }
+                // Instructor's code retrieves the top 1 car (order by Descr)
+                lblError.Text = "Please return to the <a href='index.aspx'>gallery</a> and pick a specific car.";
 
-        private void ShowCar_Advertised()
-        {
-            string connStr = ConfigurationManager.ConnectionStrings["RideNowConnStr"].ConnectionString;
-            SqlConnection conn = new SqlConnection(connStr);
-            conn.Open();
-            SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandType = System.Data.CommandType.Text;
-            cmd.CommandText = "SELECT * FROM Cars WHERE ShowType=@type";
-            cmd.Parameters.AddWithValue("@type", "1");
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
-            if (dt.Rows.Count > 0)
-            {
-                rpt1.DataSource = dt;
-                rpt1.DataBind();
             }
-            else
-            {
-                lblError.Text = " Please return soon to view our latest advertised specials! ";
-            }
-            conn.Close();
         }
 
         protected void rpt1_ItemCommand(object source, RepeaterCommandEventArgs e)
@@ -103,7 +71,7 @@ namespace RideNow
                     cmd1.Parameters.AddWithValue("@isreturn", 0);
                     cmd1.ExecuteNonQuery();
                     conn.Close();
-                    Response.Redirect("/user/myrent.aspx");
+                    Response.Redirect("myrent.aspx");
                 }
             }
         }
@@ -119,7 +87,7 @@ namespace RideNow
             SqlDataReader rdr;
             rdr = cmd.ExecuteReader();
             rdr.Read();
-            amount = Convert.ToInt32(rdr["Amt"]);
+            amount = Convert.ToInt32(rdr["amt"]);
             rdr.Close();
             conn.Close();
             return amount;
